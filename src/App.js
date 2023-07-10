@@ -1,6 +1,6 @@
 import { RouterProvider, createHashRouter } from "react-router-dom";
-import Root from "./pages/Root.js";
-import HomePage from "./pages/homepage/HomePage.js";
+import Root from "./pages/Root";
+import HomePage from "./pages/homepage/HomePage";
 
 const App = () => {
   const router = createHashRouter([

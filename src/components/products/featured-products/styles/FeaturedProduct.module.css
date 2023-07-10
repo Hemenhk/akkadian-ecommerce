@@ -1,0 +1,51 @@
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 2px;
+  padding: 1rem;
+  margin-left: 1rem 0;
+
+}
+
+.featured_product {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured_product h3 {
+  font-family: "Lora";
+}
+
+.featured_product p {
+  font-family: "Noto Sans";
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.btn {
+  font-family: "Noto Sans";
+  font-size: 1rem;
+  font-weight: 500;
+
+  border: none;
+  border-radius: 2px;
+
+  background-color: #000;
+  color: #fff;
+
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.btn:hover {
+  background-color: cadetblue;
+}
+
+.img_container {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+  width: 200px;
+}
