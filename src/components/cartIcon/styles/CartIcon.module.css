@@ -1,0 +1,22 @@
+.cart_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    background-color: black;
+    width: 70px;
+    border-radius: 30px;
+    padding: 0 10px;
+  
+    gap: 5px;
+  }
+  
+  .cart_container span {
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .cart_container p {
+    color: white;
+    margin-right: 20px;
+  }

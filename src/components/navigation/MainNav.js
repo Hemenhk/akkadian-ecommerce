@@ -1,7 +1,9 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import Dropdown from "./Dropdown/Dropdown";
 
 import classes from "./MainNav.module.css";
-import { Link, NavLink } from "react-router-dom";
+import CartIcon from "../cartIcon/CartIcon";
 
 const MainNav = () => {
   return (
@@ -18,7 +20,10 @@ const MainNav = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/">About</NavLink>
+              <NavLink to="/shop">Shop</NavLink>
+            </li>
+            <li>
+              <Dropdown />
             </li>
             <li>
               <NavLink to="/">Contact</NavLink>
@@ -26,10 +31,7 @@ const MainNav = () => {
           </ul>
         </nav>
       </div>
-      <div className={classes.cart_container}>
-        <span class="material-symbols-outlined">local_mall</span>
-        <p>1</p>
-      </div>
+      <CartIcon />
     </div>
   );
 };

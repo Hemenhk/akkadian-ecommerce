@@ -44,6 +44,7 @@
 .img_container {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .image {

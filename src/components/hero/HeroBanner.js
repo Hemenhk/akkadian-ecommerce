@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./styles/HeroBanner.module.css";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
   return (
@@ -17,8 +18,9 @@ const HeroBanner = () => {
         </p>
       </div>
       <div className={classes.btn_container}>
-        <button className={classes.main_btn}>Buy now</button>
-        <button className={classes.secondary_btn}>View collections</button>
+        <Link to="/shop">
+          <button className={classes.secondary_btn}>View products</button>
+        </Link>
       </div>
     </div>
   );
