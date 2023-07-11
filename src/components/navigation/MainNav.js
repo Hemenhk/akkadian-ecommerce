@@ -4,8 +4,15 @@ import Dropdown from "./Dropdown/Dropdown";
 
 import classes from "./MainNav.module.css";
 import CartIcon from "../cartIcon/CartIcon";
+import { useDispatch } from "react-redux";
+import { setClearCart } from "../../redux/reducers/cartSlice";
 
 const MainNav = () => {
+  const dispatch = useDispatch();
+
+  const clearCartHandler = () => {
+    dispatch(setClearCart());
+  };
   return (
     <div className={classes.container}>
       <div>

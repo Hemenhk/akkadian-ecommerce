@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product_container {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.img {
+  width: 50px;
+}
+
+.info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.info p {
+  color: #000;
+}
+
+.item_handler {
+  display: flex;
+}
+
+.quantity p {
+  color: #000;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.btn_container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem;
+
+  border: none;
+  color: white;
+}
+
+.add_btn {
+  background-color: cadetblue;
+}
+
+.remove_btn {
+  background-color: rgb(178, 3, 3);
+}
