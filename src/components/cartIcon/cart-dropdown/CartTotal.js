@@ -1,8 +1,9 @@
 import React from "react";
 
-import classes from "./styles/CartTotal.module.css";
 import { useDispatch } from "react-redux";
 import { setClearCart } from "../../../redux/reducers/cartSlice";
+import { Button, Flex, Text } from "@chakra-ui/react";
+import { BsDot } from "react-icons/bs";
 
 const CartTotal = ({ itemCount, total }) => {
   const dispatch = useDispatch();
@@ -11,18 +12,43 @@ const CartTotal = ({ itemCount, total }) => {
     dispatch(setClearCart());
   };
   return (
-    <div className={classes.container}>
-      <div className={classes.info}>
-        <p>Total items: {itemCount}</p>
-        <p>{`Total: $${total.toFixed(2)}`}</p>
-      </div>
-      <div className={classes.btn_container}>
-        <button className={classes.btn_checkout}>CHECKOUT</button>
-        <button className={classes.btn_clear} onClick={clearCartHandler}>
+    <Flex flexDirection={"column"} gap={4} pb={10}>
+      <Text>Total items: {itemCount}</Text>
+      <Flex flexDirection={"column"} gap={2}>
+        <Button
+          display={"flex"}
+          alignItems={"center"}
+          gap={2}
+          fontFamily={"noto sans"}
+          bgGradient={"linear(to-r, white 50%, black 50%)"}
+          bgSize={"200% 100%"}
+          bgPosition={"right bottom"}
+          color={"#fff"}
+          border={"1px solid black"}
+          borderRadius={2}
+          transition={"all 0.5s ease-out"}
+          _hover={{
+            backgroundPosition: "left bottom",
+
+            color: "#000",
+          }}
+        >
+          <Text>CHECKOUT</Text>
+          <BsDot />
+          <Text>{`$ ${total.toFixed(0)}`}</Text>
+        </Button>
+        <Button
+          onClick={clearCartHandler}
+          fontFamily={"noto sans"}
+          fontWeight={"00"}
+          bg={"transparent"}
+          color={"#000"}
+          _hover={{ backgroundColor: "transparent" }}
+        >
           CLEAR
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 

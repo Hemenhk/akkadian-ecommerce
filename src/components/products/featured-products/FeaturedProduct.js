@@ -43,7 +43,6 @@ const FeaturedProduct = ({ productId }) => {
   };
 
   return (
-   
     <Card>
       <CardBody>
         <Image src={image} w={200} onClick={itemNavHandler} cursor="pointer" />
@@ -59,22 +58,40 @@ const FeaturedProduct = ({ productId }) => {
       <CardFooter display="flex" justifyContent="center">
         {!isInCart(product, cartItems) ? (
           <Button
-            borderRadius={4}
-            bg="#000"
-            color="#fff"
             w="100%"
-            _hover={{ backgroundColor: "cadetBlue" }}
+            fontFamily={"noto sans"}
+            bgGradient={"linear(to-r, white 50%, black 50%)"}
+            bgSize={"200% 100%"}
+            bgPosition={"right bottom"}
+            color={"#fff"}
+            border={"1px solid black"}
+            borderRadius={2}
+            transition={"all 0.5s ease-out"}
+            _hover={{
+              backgroundPosition: "left bottom",
+
+              color: "#000",
+            }}
             onClick={addItemHandler}
           >
             ADD TO CART
           </Button>
         ) : (
           <Button
-            borderRadius={4}
-            bg="#000"
-            color="#fff"
             w="100%"
-            _hover={{ backgroundColor: "cadetBlue" }}
+            fontFamily={"noto sans"}
+            bgGradient={"linear(to-r, white 50%, black 50%)"}
+            bgSize={"200% 100%"}
+            bgPosition={"right bottom"}
+            color={"#fff"}
+            border={"1px solid black"}
+            borderRadius={2}
+            transition={"all 0.5s ease-out"}
+            _hover={{
+              backgroundPosition: "left bottom",
+
+              color: "#000",
+            }}
             onClick={increaseItemHandler}
           >
             ADD MORE

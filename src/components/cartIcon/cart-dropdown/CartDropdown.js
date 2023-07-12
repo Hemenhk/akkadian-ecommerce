@@ -21,8 +21,8 @@ const CartDropdown = () => {
 
 
   return (
-    <div className={classes.dropdown}>
-      <div className={classes.cart}>
+    <div>
+      <div>
         <div>{cartProducts} </div>
         <div>
           <CartTotal itemCount={itemCount} total={total} />

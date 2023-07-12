@@ -24,9 +24,18 @@ const HeroBanner = () => {
             fontSize={"1rem"}
             h={50}
             w={160}
-            borderRadius={"2px"}
-            transition={` 0.3s ease-out `}
-            _hover={{ backgroundColor: "cadetBlue", color: "#fff" }}
+            bgGradient={"linear(to-r, transparent 50%, white 50%)"}
+            bgSize={"200% 100%"}
+            bgPosition={"right bottom"}
+            color={"#000"}
+            border={"1px solid white"}
+            borderRadius={2}
+            transition={"all 0.3s ease-out"}
+            _hover={{
+              backgroundPosition: "left bottom",
+              backgroundColor: "transparent",
+              color: "#fff",
+            }}
           >
             View products
           </Button>

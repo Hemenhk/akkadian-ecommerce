@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
-import { BsTrash3Fill } from "react-icons/bs";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { BsTrash3 } from "react-icons/bs";
 
 import {
   setIncrease,
@@ -9,6 +9,7 @@ import {
   setDecrease,
 } from "../../../redux/reducers/cartSlice";
 import classes from "./styles/CartItem.module.css";
+import { Button, Flex, Image, Text } from "@chakra-ui/react";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
@@ -17,43 +18,61 @@ const CartItem = (props) => {
 
   const itemIncreaseHandler = () => dispatch(setIncrease({ id }));
 
-  const itemDecreaseHandler = () => dispatch(setDecrease({ title, price, image, quantity, id }));
+  const itemDecreaseHandler = () =>
+    dispatch(setDecrease({ title, price, image, quantity, id }));
 
-  const itemRemoveHandler = () => dispatch(setRemove({title, price, image, quantity, id }));
+  const itemRemoveHandler = () =>
+    dispatch(setRemove({ title, price, image, quantity, id }));
 
   return (
-    <div className={classes.container}>
-      <div className={classes.product_container}>
-        <div className={classes.img_container}>
-          <img className={classes.img} src={image} />
-        </div>
-        <div className={classes.info}>
-          <h4>{title}</h4>
-          <p>$ {price}</p>
-        </div>
-      </div>
-      <div className={classes.item_handler}>
-        <div className={classes.quantity}>
-          <p>{`Quantity: ${quantity}`}</p>
-        </div>
-        <div className={classes.btn_container}>
-          <button className={classes.add_btn}>
-            <AiFillPlusCircle size={25} onClick={itemIncreaseHandler} />
-          </button>
+    <Flex
+      alignItems={"center"}
+      justifyContent={"space-between"}
+      mb={5}
+      pb={8}
+      borderBottomWidth="1px"
+    >
+      <Flex alignItems={"center"} ml={10}>
+        <Image src={image} w={"110px"} />
+      </Flex>
+      <Flex gap={4} flexDirection={"column"} mr={20}>
+        <Flex flexDirection={"column"} gap={1.5}>
+          <Text fontFamily={"noto sans"} fontSize={".9rem"}>
+            {title}
+          </Text>
+          <Text fontFamily={"inter"} fontSize={".9rem"}>
+            $ {price}
+          </Text>
+        </Flex>
 
-          {quantity > 0 && (
-            <>
-              <button className={classes.remove_btn}>
-                <AiFillMinusCircle size={25} onClick={itemDecreaseHandler} />
-              </button>
-              <button className={classes.remove_btn}>
-                <BsTrash3Fill size={25} onClick={itemRemoveHandler} />
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
+        <Flex alignItems={"center"} justifyContent={"space-between"} gap={3}>
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            gap={4}
+            border={"1px"}
+            borderColor={"#dbdbdb"}
+            borderRadius={2}
+            padding={"6px"}
+          >
+            <AiOutlineMinus
+              size={15}
+              cursor={"pointer"}
+              onClick={itemDecreaseHandler}
+            />
+            <Text>{quantity}</Text>
+            <AiOutlinePlus
+              size={15}
+              cursor={"pointer"}
+              onClick={itemIncreaseHandler}
+            />
+          </Flex>
+          <Flex>
+            <BsTrash3 cursor={"pointer"} onClick={itemRemoveHandler} />
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
