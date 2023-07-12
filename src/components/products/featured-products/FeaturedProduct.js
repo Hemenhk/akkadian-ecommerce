@@ -1,10 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import classes from "./styles/FeaturedProduct.module.css";
 import { useNavigate } from "react-router-dom";
 import { setAddProduct, setIncrease } from "../../../redux/reducers/cartSlice";
 import { isInCart } from "../../../helpers";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Heading,
+  Image,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 
 const FeaturedProduct = ({ productId }) => {
   const dispatch = useDispatch();
@@ -34,24 +43,45 @@ const FeaturedProduct = ({ productId }) => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.img_container} onClick={itemNavHandler}>
-        <img className={classes.image} src={image} alt="product" />
-      </div>
-      <div className={classes.featured_product}>
-        <h3>{title}</h3>
-        <p>$ {price}</p>
+   
+    <Card>
+      <CardBody>
+        <Image src={image} w={200} onClick={itemNavHandler} cursor="pointer" />
+        <Stack gap={-10}>
+          <Heading size="sm" fontSize="1.1rem">
+            {title}
+          </Heading>
+          <Text fontFamily="Inter" fontWeight="semibold">
+            $ {price}
+          </Text>
+        </Stack>
+      </CardBody>
+      <CardFooter display="flex" justifyContent="center">
         {!isInCart(product, cartItems) ? (
-          <button className={classes.btn} onClick={addItemHandler}>
+          <Button
+            borderRadius={4}
+            bg="#000"
+            color="#fff"
+            w="100%"
+            _hover={{ backgroundColor: "cadetBlue" }}
+            onClick={addItemHandler}
+          >
             ADD TO CART
-          </button>
+          </Button>
         ) : (
-          <button className={classes.btn} onClick={increaseItemHandler}>
+          <Button
+            borderRadius={4}
+            bg="#000"
+            color="#fff"
+            w="100%"
+            _hover={{ backgroundColor: "cadetBlue" }}
+            onClick={increaseItemHandler}
+          >
             ADD MORE
-          </button>
+          </Button>
         )}
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 

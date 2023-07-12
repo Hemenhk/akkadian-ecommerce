@@ -84,6 +84,10 @@ const cartSlice = createSlice({
       if (removeIndex >= 0) {
         state.cartItems.splice(removeIndex, 1);
       }
+      const { itemCount, total } = recalculateCart(state.cartItems);
+      state.itemCount = itemCount;
+      state.total = total;
+      saveCartItems(state.cartItems);
     },
     setClearCart: (state) => {
       state.cartItems = [];

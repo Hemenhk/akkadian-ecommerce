@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 
 import classes from "./styles/Dropdown.module.css";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 const Dropdown = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -26,25 +27,35 @@ const Dropdown = () => {
       </ul>
     </>
   );
-  
+
   return (
-    <div
-      className={`${classes.dropdown} ${
-        openDropdownHandler ? classes.open : ""
-      }`}
-      onClick={openDropdownHandler}
-    >
-      <li>
-        Categories{" "}
-        <BiChevronDown
-          size={30}
-          className={`${
-            drawerIsOpen ? classes.chevron : classes.chevron_closed
-          }`}
-        />
-      </li>
-      {drawerIsOpen && drawer}
-    </div>
+    <Menu>
+      {({ isOpen }) => (
+        <>
+          <MenuButton
+            as={Button}
+            rightIcon={
+              <BiChevronDown
+                size={20}
+                className={`${
+                  isOpen ? classes.chevron : classes.chevron_closed
+                }`}
+              />
+            }
+            backgroundColor="transparent"
+            fontFamily="Inter"
+            fontWeight="400"
+          >
+            Categories
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Beard</MenuItem>
+            <MenuItem>Hair</MenuItem>
+            <MenuItem>Kits</MenuItem>
+          </MenuList>
+        </>
+      )}
+    </Menu>
   );
 };
 

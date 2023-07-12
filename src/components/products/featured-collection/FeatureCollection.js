@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import FeaturedProduct from "../featured-products/FeaturedProduct";
 
 import classes from "./styles/FeaturedCollection.module.css";
+import { Container, Flex, Heading } from "@chakra-ui/react";
 const FeatureCollection = () => {
   const products = useSelector((state) => state.product);
 
@@ -12,10 +13,10 @@ const FeatureCollection = () => {
       <FeaturedProduct productId={product.id} {...product} key={product.id} />
     ));
   return (
-    <div className={classes.container}>
-      <h2>Featured Collection</h2>
-      <div className={classes.collection}>{productItems}</div>
-    </div>
+    <Flex flexDirection="column" alignItems="center" gap={10}>
+      <Heading size={"lg"} fontFamily={"Noto Sans"} fontWeight={500}>Featured Collection</Heading>
+      <Flex gap={4} justifyContent={"center"} flexWrap={"wrap"}>{productItems}</Flex>
+    </Flex>
   );
 };
 
