@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/akkadian-ecommerce/static/css/main.cc5a2d0e.css",
+    "main.js": "/akkadian-ecommerce/static/js/main.973d3e85.js",
+    "static/js/787.0d39f3a2.chunk.js": "/akkadian-ecommerce/static/js/787.0d39f3a2.chunk.js",
+    "static/media/cb.jpg": "/akkadian-ecommerce/static/media/cb.45708d48018095115c83.jpg",
+    "static/media/cp.jpg": "/akkadian-ecommerce/static/media/cp.0e947e98a541211cf0cc.jpg",
+    "static/media/mp.jpg": "/akkadian-ecommerce/static/media/mp.0d0647576a8d2df2a13b.jpg",
+    "static/media/sss.jpg": "/akkadian-ecommerce/static/media/sss.6c0fdce18b56815f63bb.jpg",
+    "static/media/bo.jpg": "/akkadian-ecommerce/static/media/bo.10bfa916fb2ac1d5b080.jpg",
+    "static/media/hero_image.jpg": "/akkadian-ecommerce/static/media/hero_image.0a0a52672498dbd902f3.jpg",
+    "static/media/website-header.png": "/akkadian-ecommerce/static/media/website-header.223c31352de11f4becc6.png",
+    "index.html": "/akkadian-ecommerce/index.html",
+    "main.cc5a2d0e.css.map": "/akkadian-ecommerce/static/css/main.cc5a2d0e.css.map",
+    "main.973d3e85.js.map": "/akkadian-ecommerce/static/js/main.973d3e85.js.map",
+    "787.0d39f3a2.chunk.js.map": "/akkadian-ecommerce/static/js/787.0d39f3a2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc5a2d0e.css",
+    "static/js/main.973d3e85.js"
+  ]
+}
