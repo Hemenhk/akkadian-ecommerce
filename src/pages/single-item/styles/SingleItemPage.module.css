@@ -1,21 +1,19 @@
-@media (max-width: 500px){
-    .container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 
-    .container * {
-        margin: 0;
-    }
+  .container div {
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
 
-    .container img {
-        width: 250px;
-        margin-top: 20px;
-    }
-
-    .info_container {
-        align-items: center;
-        text-align: center;
-    }
+  .container img {
+    width: 250px;
+    margin-top: 20px;
+  }
 }
