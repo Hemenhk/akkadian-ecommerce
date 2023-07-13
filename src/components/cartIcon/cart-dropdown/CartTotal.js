@@ -24,12 +24,11 @@ const CartTotal = ({ itemCount, total }) => {
           bgSize={"200% 100%"}
           bgPosition={"right bottom"}
           color={"#fff"}
-          border={"1px solid black"}
+          borderw={"1px solid black"}
           borderRadius={2}
           transition={"all 0.5s ease-out"}
           _hover={{
             backgroundPosition: "left bottom",
-
             color: "#000",
           }}
         >

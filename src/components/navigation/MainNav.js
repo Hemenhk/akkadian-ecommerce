@@ -6,6 +6,8 @@ import classes from "./MainNav.module.css";
 import CartIcon from "../cartIcon/CartIcon";
 import { useDispatch } from "react-redux";
 import { setClearCart } from "../../redux/reducers/cartSlice";
+import { Flex, Text } from "@chakra-ui/react";
+import SideNav from "./drawer/Drawer";
 
 const MainNav = () => {
   const dispatch = useDispatch();
@@ -14,32 +16,18 @@ const MainNav = () => {
     dispatch(setClearCart());
   };
   return (
-    <div className={classes.container}>
-      <div>
-        <Link className={classes.logo} to="/">
-          Logo
-        </Link>
-      </div>
-      <div className={classes.header}>
-        <nav>
-          <ul className={classes.nav_list}>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop">Shop</NavLink>
-            </li>
-            <li>
-              <Dropdown />
-            </li>
-            <li>
-              <NavLink to="/">Contact</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <CartIcon />
-    </div>
+    
+    <Flex justifyContent={"space-between"} alignItems={"center"} padding={10} borderBottomWidth={1}>
+      <Flex>
+        <SideNav />
+      </Flex>
+      <Flex>
+        <Text>Logo</Text>
+      </Flex>
+      <Flex>
+        <CartIcon />
+      </Flex>
+    </Flex>
   );
 };
 

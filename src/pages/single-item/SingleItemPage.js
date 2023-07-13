@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import classes from "./styles/SingleItemPage.module.css";
 import { setAddProduct, setIncrease } from "../../redux/reducers/cartSlice";
 import { isInCart } from "../../helpers";
+import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 const SingleItemPage = () => {
   const dispatch = useDispatch();
@@ -26,27 +27,67 @@ const SingleItemPage = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.img_container}>
-        <img src={image} alt="product " className={classes.img} />
-      </div>
-      <div className={classes.product_container}>
-        <div className={classes.product_info}>
-          <h3>{title}</h3>
-          <p>$ {price}</p>
-        </div>
-        <div className={classes.btn_container}>
+    <Flex justifyContent={"space-between"} alignItems={"center"} gap={10}>
+      <Flex ml={20}>
+        <Image src={image} alt="product " w={"450px"} />
+      </Flex>
+      <Flex flexDirection={"column"} gap={10}>
+        <Flex flexDirection={"column"} gap={2}>
+          <Text
+            fontFamily={"inter"}
+            fontSize={"1.2rem"}
+            fontWeight={"400"}
+            letterSpacing={1.5}
+            textTransform={"uppercase"}
+          >
+            {title}
+          </Text>
+          <Text fontFamily={"inter"}>$ {price}</Text>
+        </Flex>
+        <Flex flexDirection={"column"} gap={10} w={"90%"}>
           {!isInCart(products, cartItems) ? (
-            <button onClick={addItemHandler}>ADD TO CART</button>
+            <Button
+              w={"100%"}
+              h={10}
+              bgGradient={"linear(to-r, white 50%, black 50%)"}
+              bgSize={"200% 100%"}
+              bgPosition={"right bottom"}
+              color={"#fff"}
+              border={"1px solid black"}
+              borderRadius={2}
+              transition={"all 0.5s ease-out"}
+              _hover={{
+                backgroundPosition: "left bottom",
+                color: "#000",
+              }}
+              onClick={addItemHandler}
+            >
+              ADD TO CART
+            </Button>
           ) : (
-            <button onClick={increaseItemHandler}>ADD MORE</button>
-          )}
-        </div>
-        <div className={classes.desc_container}>
-          <p>{description}</p>
-        </div>
-      </div>
-    </div>
+            <Button
+              w={"100%"}
+              h={10}
+              bgGradient={"linear(to-r, white 50%, black 50%)"}
+              bgSize={"200% 100%"}
+              bgPosition={"right bottom"}
+              color={"#fff"}
+              border={"1px solid black"}
+              borderRadius={2}
+              transition={"all 0.5s ease-out"}
+              _hover={{
+                backgroundPosition: "left bottom",
+                color: "#000",
+              }}
+              onClick={increaseItemHandler}
+            >
+              ADD MORE
+            </Button>
+          )}{" "}
+          <Text>{description}</Text>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
