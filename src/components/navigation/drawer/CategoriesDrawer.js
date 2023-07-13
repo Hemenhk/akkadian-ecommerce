@@ -32,9 +32,6 @@ const CategoriesDrawer = () => {
           <li>
             <NavLink to="/hair">Hair</NavLink>
           </li>
-          <li>
-            <NavLink to="/">Contact</NavLink>
-          </li>
         </ul>
       </Flex>
     </>

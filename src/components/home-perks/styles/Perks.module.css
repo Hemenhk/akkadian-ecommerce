@@ -12,7 +12,7 @@
 @media (max-width: 500px) {
   .container {
     flex-direction: column !important;
-    margin-bottom: 30rem;
+    margin-bottom: 30rem !important;
     gap: 3rem;
   }
 
