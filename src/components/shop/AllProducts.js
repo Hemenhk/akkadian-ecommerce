@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import FeaturedProduct from "../products/featured-products/FeaturedProduct";
 import classes from "./styles/AllProducts.module.css";
+import { Heading } from "@chakra-ui/react";
 
 const AllProducts = () => {
   const products = useSelector((state) => state.product);
@@ -12,7 +13,7 @@ const AllProducts = () => {
   ));
   return (
     <div className={classes.container}>
-      <h2>Shop</h2>
+      <Heading fontFamily={"noto sans"} fontSize={"2rem"}>Shop</Heading>
       <div className={classes.products}>{allProducts}</div>
     </div>
   );

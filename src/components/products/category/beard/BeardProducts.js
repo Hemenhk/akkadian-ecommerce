@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import FeaturedProduct from "../../featured-products/FeaturedProduct";
 
 import classes from "./styles/BeardProduct.module.css"
+import { Heading } from "@chakra-ui/react";
 const BeardProducts = () => {
   const products = useSelector((state) => state.product);
 
@@ -15,7 +16,7 @@ const BeardProducts = () => {
   ));
   return (
     <div className={classes.container}>
-        <h2>Beard</h2>
+        <Heading fontFamily={"noto sans"} fontSize={"2rem"}>Beard</Heading>
       <div className={classes.products}>{beardProducts}</div>
     </div>
   );
