@@ -9,9 +9,8 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Heading,
+  Flex,
   Image,
-  Stack,
   Text,
 } from "@chakra-ui/react";
 
@@ -46,14 +45,14 @@ const FeaturedProduct = ({ productId }) => {
     <Card>
       <CardBody>
         <Image src={image} w={200} onClick={itemNavHandler} cursor="pointer" />
-        <Stack gap={-10}>
-          <Heading size="sm" fontSize="1.1rem">
+        <Flex flexDirection={"column"} gap={2} pt={5}>
+          <Text fontFamily={"noto sans"} fontWeight="semibold" fontSize="1.1rem">
             {title}
-          </Heading>
-          <Text fontFamily="Inter" fontWeight="semibold">
+          </Text>
+          <Text fontFamily="Inter" fontWeight="400">
             $ {price}
           </Text>
-        </Stack>
+        </Flex>
       </CardBody>
       <CardFooter display="flex" justifyContent="center">
         {!isInCart(product, cartItems) ? (

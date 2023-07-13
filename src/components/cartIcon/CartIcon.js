@@ -14,7 +14,6 @@ import {
   Flex,
   useDisclosure,
 } from "@chakra-ui/react";
-import classes from "./styles/CartIcon.module.css";
 import CartTotal from "./cart-dropdown/CartTotal";
 
 const CartIcon = () => {
@@ -35,9 +34,18 @@ const CartIcon = () => {
         w={"70px"}
         borderRadius={"30px"}
         cursor={"pointer"}
-        className={classes.cart_container}
+        bgGradient={"linear(to-r, white 50%, black 50%)"}
+        bgSize={"200% 100%"}
+        bgPosition={"right bottom"}
+        color={"#fff"}
+        border={"1px solid black"}
+        transition={"all 0.5s ease-out"}
+        _hover={{
+          backgroundPosition: "left bottom",
+          color: "#000",
+        }}
       >
-        <Flex alignItems={"center"} ml={2} gap={1}>
+        <Flex alignItems={"center"} gap={1}>
           <span class="material-symbols-outlined">local_mall</span>
           {itemCount > 0 ? cartTotal : <p>0</p>}
         </Flex>
