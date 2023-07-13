@@ -13,6 +13,7 @@ const Perks = () => {
       alignItems={"center"}
       h={"300px"}
       margin={"20px 50px"}
+      className={classes.container}
     >
       <Flex
         flexDirection={"column"}

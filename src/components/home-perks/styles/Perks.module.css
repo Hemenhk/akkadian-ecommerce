@@ -8,3 +8,22 @@
 .perks:hover {
   color: cadetblue;
 }
+
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column !important;
+    margin-bottom: 30rem;
+    gap: 3rem;
+  }
+
+  .container div {
+    width: 100%;
+  }
+  h2 {
+    font-size: 1rem !important;
+  }
+
+  .perks {
+    color: cadetblue;
+  }
+}

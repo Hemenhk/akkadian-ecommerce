@@ -2,10 +2,11 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import classes from "./styles/HeroBanner.module.css"
 
 const HeroBanner = () => {
   return (
-    <Flex flexDirection={"column"} gap={10} ml={20}>
+    <Flex flexDirection={"column"} gap={10} ml={20} className={classes.container}>
       <Flex flexDirection={"column"} gap={5} w={"60%"}>
         <Heading color={"#fff"} fontSize={28}>
           Nurture your beard and style your hair with the highest quaility

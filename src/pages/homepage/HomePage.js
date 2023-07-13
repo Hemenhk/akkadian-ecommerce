@@ -8,7 +8,7 @@ import { Flex } from "@chakra-ui/react";
 
 const HomePage = () => {
   return (
-    <Flex flexDirection={"column"}>
+    <Flex flexDirection={"column"} justifyContent={"space-between"}>
       <Flex
         className={classes.hero_image}
         flexDirection={"column"}
@@ -18,9 +18,12 @@ const HomePage = () => {
       >
         <HeroBanner />
       </Flex>
-
-      <Perks />
-      <FeatureCollection />
+      <Flex flexWrap={"wrap"}>
+        <Perks />
+      </Flex>
+      <Flex>
+        <FeatureCollection />
+      </Flex>
     </Flex>
   );
 };
