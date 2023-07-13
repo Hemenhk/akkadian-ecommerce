@@ -1,17 +1,12 @@
 import React from "react";
 
-import classes from "./styles/CartDropdown.module.css";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
-import CartTotal from "./CartTotal";
-
-
 
 const CartDropdown = () => {
-  const product = useSelector((state) => state.product);
   const cart = useSelector((state) => state.cart);
 
-  const { itemCount, cartItems, total } = cart;
+  const { cartItems } = cart;
 
   const cartProducts = cartItems.map((product) => (
     <>
@@ -19,17 +14,7 @@ const CartDropdown = () => {
     </>
   ));
 
-
-  return (
-    <div>
-      <div>
-        <div>{cartProducts} </div>
-        <div>
-          <CartTotal itemCount={itemCount} total={total} />
-        </div>
-      </div>
-    </div>
-  );
+  return <div>{cartProducts} </div>;
 };
 
 export default CartDropdown;

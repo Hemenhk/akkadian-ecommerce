@@ -19,7 +19,7 @@ const NavLinks = () => {
           <CategoriesDrawer />
         </li>
         <li>
-          <NavLink to={"/contact"}>Contact</NavLink>
+          <NavLink to={"/faq"}>Faq</NavLink>
         </li>
       </ul>
     </Flex>

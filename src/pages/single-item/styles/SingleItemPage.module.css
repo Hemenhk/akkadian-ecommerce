@@ -1,0 +1,21 @@
+@media (max-width: 500px){
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container * {
+        margin: 0;
+    }
+
+    .container img {
+        width: 250px;
+        margin-top: 20px;
+    }
+
+    .info_container {
+        align-items: center;
+        text-align: center;
+    }
+}

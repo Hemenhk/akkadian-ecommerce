@@ -1,4 +1,3 @@
-import React from "react";
 
 import { useDispatch } from "react-redux";
 import { setClearCart } from "../../../redux/reducers/cartSlice";
@@ -13,7 +12,7 @@ const CartTotal = ({ itemCount, total }) => {
   };
   return (
     <Flex flexDirection={"column"} gap={4} pb={10}>
-      <Text>Total items: {itemCount}</Text>
+      <Text fontFamily={"noto sans"} textTransform={"uppercase"} fontSize={14}>Total items: {itemCount}</Text>
       <Flex flexDirection={"column"} gap={2}>
         <Button
           display={"flex"}

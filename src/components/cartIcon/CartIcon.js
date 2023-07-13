@@ -12,10 +12,6 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
   useDisclosure,
 } from "@chakra-ui/react";
 import classes from "./styles/CartIcon.module.css";
@@ -27,7 +23,7 @@ const CartIcon = () => {
   const btnRef = useRef();
 
   const cart = useSelector((state) => state.cart);
-  const { itemCount } = cart;
+  const { itemCount, total } = cart;
 
   const cartTotal = <p>{itemCount}</p>;
   return (
@@ -35,18 +31,16 @@ const CartIcon = () => {
       <Button
         ref={btnRef}
         onClick={onOpen}
-        justifyContent={"space-between"}
-        alignItems={"center"}
         backgroundColor={"#000"}
         w={"70px"}
         borderRadius={"30px"}
-        padding={"10px"}
-        gap={"5px"}
         cursor={"pointer"}
         className={classes.cart_container}
       >
-        <span class="material-symbols-outlined">local_mall</span>
-        {itemCount > 0 ? cartTotal : <p>0</p>}
+        <Flex alignItems={"center"} ml={2} gap={1}>
+          <span class="material-symbols-outlined">local_mall</span>
+          {itemCount > 0 ? cartTotal : <p>0</p>}
+        </Flex>
       </Button>
       <Drawer
         size={"sm"}
@@ -54,7 +48,6 @@ const CartIcon = () => {
         placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
-
       >
         <DrawerOverlay />
         <DrawerContent bg={"#fafafa"}>
@@ -71,6 +64,11 @@ const CartIcon = () => {
           <DrawerBody>
             <CartDropdown />
           </DrawerBody>
+          <DrawerFooter justifyContent={"center"}>
+            <DrawerBody>
+              <CartTotal itemCount={itemCount} total={total} />
+            </DrawerBody>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

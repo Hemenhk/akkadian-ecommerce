@@ -1,8 +1,0 @@
-.chevron {
-  transform: rotate(180deg);
-  transition: 0.2s linear;
-}
-
-.chevron_closed {
-  transition: 0.2s linear;
-}

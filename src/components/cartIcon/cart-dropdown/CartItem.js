@@ -8,8 +8,7 @@ import {
   setRemove,
   setDecrease,
 } from "../../../redux/reducers/cartSlice";
-import classes from "./styles/CartItem.module.css";
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import classes from "./styles/SingleItemPage.module.css";
 import { setAddProduct, setIncrease } from "../../redux/reducers/cartSlice";
 import { isInCart } from "../../helpers";
-import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Image, Text } from "@chakra-ui/react";
 
 const SingleItemPage = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const SingleItemPage = () => {
   };
 
   return (
-    <Flex justifyContent={"space-between"} alignItems={"center"} gap={10}>
+    <Flex className={classes.container} justifyContent={"space-between"} alignItems={"center"} gap={10}>
       <Flex ml={20}>
         <Image src={image} alt="product " w={"450px"} />
       </Flex>
