@@ -21,7 +21,7 @@ const HomePage = () => {
       <Flex flexWrap={"wrap"}>
         <Perks />
       </Flex>
-      <Flex>
+      <Flex justifyContent={"center"}>
         <FeatureCollection />
       </Flex>
     </Flex>
