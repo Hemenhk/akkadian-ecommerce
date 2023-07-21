@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -6,30 +6,38 @@ import classes from "./styles/SingleItemPage.module.css";
 import { setAddProduct, setIncrease } from "../../redux/reducers/cartSlice";
 import { isInCart } from "../../helpers";
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { fetchSingleProduct } from "../../redux/reducers/single-product/actions";
 
 const SingleItemPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
-  const products = useSelector((state) =>
-    state.product.find((p) => Number(p.id) === Number(productId))
-  );
+
+  useEffect(() => {
+    dispatch(fetchSingleProduct(productId));
+  }, [dispatch, productId]);
+  const { product } = useSelector((state) => state.singleProduct);
   const cart = useSelector((state) => state.cart);
 
-  const { title, price, image, description } = products;
+  const { title, price, imageCover, description } = product;
   const { cartItems } = cart;
 
   const addItemHandler = () => {
-    dispatch(setAddProduct(products));
+    dispatch(setAddProduct(product));
   };
 
   const increaseItemHandler = () => {
-    dispatch(setIncrease(products));
+    dispatch(setIncrease(product));
   };
 
   return (
-    <Flex className={classes.container} justifyContent={"space-between"} alignItems={"center"} gap={10}>
+    <Flex
+      className={classes.container}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      gap={10}
+    >
       <Flex ml={20}>
-        <Image src={image} alt="product " w={"450px"} />
+        <Image src={imageCover} alt="product " w={"450px"} />
       </Flex>
       <Flex flexDirection={"column"} gap={10}>
         <Flex flexDirection={"column"} gap={2}>
@@ -45,7 +53,7 @@ const SingleItemPage = () => {
           <Text fontFamily={"inter"}>$ {price}</Text>
         </Flex>
         <Flex flexDirection={"column"} gap={10} w={"90%"}>
-          {!isInCart(products, cartItems) ? (
+          {!isInCart(product, cartItems) ? (
             <Button
               w={"100%"}
               h={10}

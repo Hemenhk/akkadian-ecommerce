@@ -18,7 +18,7 @@ const FeaturedProduct = ({ productId }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const product = useSelector((state) =>
-    state.product.find((product) => product.id === productId)
+    state.allProducts.products.find((product) => product._id === productId)
   );
   const cart = useSelector((state) => state.cart);
 
@@ -26,7 +26,7 @@ const FeaturedProduct = ({ productId }) => {
     return <div>No product found</div>;
   }
 
-  const { title, price, image } = product;
+  const { title, price, imageCover } = product;
   const { cartItems } = cart;
 
   const addItemHandler = () => {
@@ -44,7 +44,7 @@ const FeaturedProduct = ({ productId }) => {
   return (
     <Card>
       <CardBody>
-        <Image src={image} w={200} onClick={itemNavHandler} cursor="pointer" />
+        <Image src={imageCover} w={200} onClick={itemNavHandler} cursor="pointer" />
         <Flex flexDirection={"column"} gap={2} pt={5}>
           <Text fontFamily={"noto sans"} fontWeight="semibold" fontSize="1.1rem">
             {title}
