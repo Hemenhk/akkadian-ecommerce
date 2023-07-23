@@ -30,15 +30,16 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     setAddProduct: (state, action) => {
-      const itemExists = state.cartItems.find(
-        (item) => item.id === action.payload.id
-      );
+      const { id, quantity } = action.payload;
+      const itemExists = state.cartItems.find((item) => item.id === id);
 
       if (!itemExists) {
         state.cartItems.push({
           ...action.payload,
-          quantity: 1,
+          quantity: quantity || 1,
         });
+      } else {
+        itemExists.quantity += quantity || 1; // Increase the existing item's quantity by the selected quantity or default to 1
       }
 
       const { itemCount, total } = recalculateCart(state.cartItems);
@@ -46,10 +47,23 @@ const cartSlice = createSlice({
       state.total = total;
       saveCartItems(state.cartItems);
     },
+    setAmountIncrease: (state, action) => {
+      const { id, quantity } = action.payload;
+
+      const increaseIndex = state.cartItems.findIndex((item) => item.id === id);
+
+      state.cartItems[increaseIndex].quantity =
+        (state.cartItems[increaseIndex].quantity || 0) + quantity;
+
+      const { itemCount, total } = recalculateCart(state.cartItems);
+      state.itemCount = itemCount;
+      state.total = total;
+      saveCartItems(state.cartItems);
+    },
     setIncrease: (state, action) => {
-      const increaseIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
+      const { id } = action.payload;
+
+      const increaseIndex = state.cartItems.findIndex((item) => item.id === id);
 
       state.cartItems[increaseIndex].quantity =
         (state.cartItems[increaseIndex].quantity || 0) + 1;
@@ -104,6 +118,7 @@ export const {
   setDecrease,
   setIncrease,
   setRemove,
+  setAmountIncrease
 } = cartSlice.actions;
 
 export default cartSlice;

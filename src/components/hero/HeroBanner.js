@@ -23,6 +23,7 @@ const HeroBanner = () => {
           <Button
             fontFamily={"Inter"}
             fontSize={"1rem"}
+            fontWeight={"500"}
             h={50}
             w={160}
             bgGradient={"linear(to-r, transparent 50%, white 50%)"}

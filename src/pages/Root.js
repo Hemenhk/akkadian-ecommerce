@@ -12,7 +12,9 @@ const Root = () => {
       <main className={classes.main_content}>
         <Outlet />
       </main>
-      <Footer />
+      <footer className={classes.footer}>
+        <Footer />
+      </footer>
     </>
   );
 };

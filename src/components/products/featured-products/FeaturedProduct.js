@@ -44,9 +44,21 @@ const FeaturedProduct = ({ productId }) => {
   return (
     <Card>
       <CardBody>
-        <Image src={imageCover} w={200} onClick={itemNavHandler} cursor="pointer" />
+        <Image
+          src={imageCover}
+          w={200}
+          onClick={itemNavHandler}
+          cursor="pointer"
+        />
         <Flex flexDirection={"column"} gap={2} pt={5}>
-          <Text fontFamily={"noto sans"} fontWeight="semibold" fontSize="1.1rem">
+          <Text
+            fontFamily={"noto sans"}
+            fontWeight={"400"}
+            fontSize=".9rem"
+            letterSpacing={1}
+
+            textTransform={"uppercase"}
+          >
             {title}
           </Text>
           <Text fontFamily="Inter" fontWeight="400">
@@ -59,6 +71,8 @@ const FeaturedProduct = ({ productId }) => {
           <Button
             w="100%"
             fontFamily={"noto sans"}
+            fontSize={".8rem"}
+            fontWeight={"400"}
             bgGradient={"linear(to-r, white 50%, black 50%)"}
             bgSize={"200% 100%"}
             bgPosition={"right bottom"}
@@ -79,6 +93,8 @@ const FeaturedProduct = ({ productId }) => {
           <Button
             w="100%"
             fontFamily={"noto sans"}
+            fontSize={".8rem"}
+            fontWeight={"400"}
             bgGradient={"linear(to-r, white 50%, black 50%)"}
             bgSize={"200% 100%"}
             bgPosition={"right bottom"}

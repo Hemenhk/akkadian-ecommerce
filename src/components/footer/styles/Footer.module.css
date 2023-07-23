@@ -1,19 +1,16 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    position: relative;
-    
-    bottom: 0%;
 
-    height: 200px;
-    width: 100%;
-    margin-top: 75px;
-    background-color: cadetblue;
+
+  height: 200px;
+  width: 100%;
+  background-color: cadetblue;
 }
 
 .container h2 {
-    font-family: "Lora";
-    color: #fff;
+  font-family: "Lora";
+  color: #fff;
 }
