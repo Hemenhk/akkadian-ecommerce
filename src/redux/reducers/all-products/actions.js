@@ -7,7 +7,7 @@ export const fetchAllProducts = () => async (dispatch) => {
     const response = await axios.get(
       "https://akk-api-eb96d31d9900.herokuapp.com/api/products/"
     );
-    dispatch(setProducts(response.data.data.products));
+    dispatch(setProducts(response.data.data.data));
     dispatch(setIsLoading(false));
   } catch (error) {
     console.log(error);

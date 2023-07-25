@@ -12,7 +12,7 @@ const FeatureCollection = () => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-  const productItems = products ? (
+  const productItems = products && (
     products
       .filter((product, idx) => idx < 4)
       .map((product) => (
@@ -22,9 +22,7 @@ const FeatureCollection = () => {
           key={product._id}
         />
       ))
-  ) : (
-    <p>There are no posts</p>
-  );
+  ) 
   return (
     <Flex flexDirection="column" alignItems="center" gap={10}>
       <Heading size={"lg"} fontFamily={"Noto Sans"} fontWeight={500}>

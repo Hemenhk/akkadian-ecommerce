@@ -24,7 +24,15 @@ const SingleItemPage = () => {
   const { product } = useSelector((state) => state.singleProduct);
   const cart = useSelector((state) => state.cart);
 
-  const { title, price, imageCover, description, ingredients, usage } = product;
+  const {
+    title,
+    price,
+    imageCover,
+    description,
+    ingredients,
+    usage,
+    ratingsQuantity,
+  } = product;
   const { cartItems } = cart;
 
   const addItemsHandler = () => {
@@ -67,7 +75,11 @@ const SingleItemPage = () => {
           <Image src={imageCover} alt="product " w={"400px"} />
         </Flex>
         <Flex w={"450px"}>
-          <TheAccordion ingredients={ingredients} usage={usage} />
+          <TheAccordion
+            ingredients={ingredients}
+            usage={usage}
+            ratingsQuantity={ratingsQuantity}
+          />
         </Flex>
       </Flex>
       <Flex flexDirection={"column"} w={"25%"} gap={10}>
@@ -82,6 +94,7 @@ const SingleItemPage = () => {
             {title}
           </Text>
           <Text fontFamily={"inter"}>$ {price}</Text>
+          <Text fontFamily={"inter"}>Ratings {ratingsQuantity}</Text>
         </Flex>
         <Flex flexDirection={"column"} gap={3}>
           <Text fontFamily={"inter"} fontSize={".8rem"}>
