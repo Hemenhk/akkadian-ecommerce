@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, Button } from "@chakra-ui/react";
 import { Rating } from "@mui/material";
 import { fetchReviews } from "../../../../../redux/reducers/single-product/actions";
 
 const AccordionReviews = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reviewsPerPage] = useState(5);
   const reviews = useSelector((state) => state.singleProduct.reviews);
 
   useEffect(() => {
     dispatch(fetchReviews(productId));
   }, [dispatch, productId]);
 
-  const fetchedReview = reviews.map((rev) => (
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+  const loadMoreReviewsHandler = () => {
+    setCurrentPage((prevState) => prevState + 1);
+  };
+  const loadPreviousReviewsHandler = () => {
+    setCurrentPage((prevState) => prevState - 1);
+  };
+
+  const renderedReviews = currentReviews.map((rev) => (
     <Flex
       flexDirection={"column"}
       key={rev._id}
@@ -65,7 +77,59 @@ const AccordionReviews = () => {
       </Flex>
     </Flex>
   ));
-  return <>{fetchedReview}</>;
+  return (
+    <>
+      {renderedReviews}
+      <Flex>
+        {currentPage > 1 && (
+          <Button
+            w={"100%"}
+            h={10}
+            fontSize={".8rem"}
+            fontWeight={"400"}
+            letterSpacing={2}
+            bgGradient={"linear(to-r, white 50%, black 50%)"}
+            bgSize={"200% 100%"}
+            bgPosition={"right bottom"}
+            color={"#fff"}
+            border={"1px solid black"}
+            borderRadius={2}
+            transition={"all 0.5s ease-out"}
+            _hover={{
+              backgroundPosition: "left bottom",
+              color: "#000",
+            }}
+            onClick={loadPreviousReviewsHandler}
+          >
+            Load previous reviews
+          </Button>
+        )}
+        {reviews.length > indexOfLastReview && (
+          <Button
+            w={"100%"}
+            h={10}
+            fontSize={".8rem"}
+            fontWeight={"400"}
+            letterSpacing={2}
+            bgGradient={"linear(to-r, white 50%, black 50%)"}
+            bgSize={"200% 100%"}
+            bgPosition={"right bottom"}
+            color={"#fff"}
+            border={"1px solid black"}
+            borderRadius={2}
+            transition={"all 0.5s ease-out"}
+            _hover={{
+              backgroundPosition: "left bottom",
+              color: "#000",
+            }}
+            onClick={loadMoreReviewsHandler}
+          >
+            Load more reviews
+          </Button>
+        )}
+      </Flex>
+    </>
+  );
 };
 
 export default AccordionReviews;
