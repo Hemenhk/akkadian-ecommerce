@@ -1,4 +1,5 @@
 import React from "react";
+import AccordionReviews from "./reviews/AccordionReviews";
 import {
   Accordion,
   AccordionItem,
@@ -124,7 +125,7 @@ const TheAccordion = ({ ingredients, usage, ratingsQuantity}) => {
               letterSpacing={0.5}
               lineHeight={1.5}
             >
-              {ratingsQuantity}
+              <AccordionReviews />
             </AccordionPanel>
           </>
         )}

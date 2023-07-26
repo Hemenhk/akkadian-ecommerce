@@ -1,3 +1,7 @@
+.rating {
+  color: rgb(14, 14, 14) !important;
+}
+
 @media (max-width: 500px) {
   .container {
     flex-direction: column !important;

@@ -1,19 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css"
+import "./index.css";
 import App from "./App.js";
 import reportWebVitals from "./reportWebVitals.js";
 import { Provider } from "react-redux";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ThemeProvider, createTheme } from "@mui/material";
+
 import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const theme = extendTheme();
+const themeMui = createTheme();
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
+      <ThemeProvider theme={themeMui}>
+        <ChakraProvider theme={theme} resetCSS>
+          <App />
+        </ChakraProvider>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
