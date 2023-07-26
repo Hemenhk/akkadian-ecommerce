@@ -5,10 +5,10 @@ import FeaturedProduct from "../../featured-products/FeaturedProduct";
 import classes from "./styles/BeardProduct.module.css"
 import { Heading } from "@chakra-ui/react";
 const BeardProducts = () => {
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.allProducts.products);
 
   const filteredProducts = products.filter((product) =>
-    product.category.includes("beard")
+    product.categories.includes("beard")
   );
 
   const beardProducts = filteredProducts.map((product) => (

@@ -6,10 +6,10 @@ import classes from "./styles/HairProduct.module.css";
 import { Heading } from "@chakra-ui/react";
 
 const HairProduct = () => {
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.allProducts.products);
 
   const filteredProducts = products.filter((product) =>
-    product.category.includes("hair")
+    product.categories.includes("hair")
   );
 
   const hairProducts = filteredProducts.map((product) => (

@@ -9,7 +9,7 @@ import { fetchSingleProduct } from "../../redux/reducers/single-product/actions"
 import TheAccordion from "../../components/products/single-item/accordion/TheAccordion";
 import QuantitySelector from "../../components/products/single-item/quantity-selector/QuantitySelector";
 import SingleItemButtons from "../../components/products/single-item/buttons/SingleItemButtons";
-import StarRating from "../../components/products/single-item/rating/Rating";
+import StarRating from "../../components/products/single-item/rating/StarRating";
 
 const SingleItemPage = () => {
   const [quantity, setQuantity] = useState(1);
@@ -19,8 +19,9 @@ const SingleItemPage = () => {
   useEffect(() => {
     dispatch(fetchSingleProduct(productId));
   }, [dispatch, productId]);
-  const { product } = useSelector((state) => state.singleProduct);
+  const { product, isLoading } = useSelector((state) => state.singleProduct);
 
+  const shouldRenderRating = product && !isLoading;
   const {
     title,
     price,
@@ -69,10 +70,15 @@ const SingleItemPage = () => {
           >
             {title}
           </Text>
-          <StarRating
-            ratingsAverage={ratingsAverage}
-            ratingsQuantity={ratingsQuantity}
-          />
+          {shouldRenderRating ? (
+            <StarRating
+              ratingsAverage={ratingsAverage}
+              ratingsQuantity={ratingsQuantity}
+            />
+          ) : (
+            <div>Loading rating...</div> // You can customize this placeholder
+          )}
+
           <Text fontFamily={"inter"}>$ {price}</Text>
         </Flex>
         <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
