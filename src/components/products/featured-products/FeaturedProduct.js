@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
+
 import { setAddProduct, setIncrease } from "../../../redux/reducers/cartSlice";
 import { isInCart } from "../../../helpers";
 import {
@@ -13,14 +13,26 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
+import { Rating } from "@mui/material";
 
 const FeaturedProduct = ({ productId }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [averageRating, setAverageRating] = useState(0);
+
   const product = useSelector((state) =>
     state.allProducts.products.find((product) => product._id === productId)
   );
   const cart = useSelector((state) => state.cart);
+  const { ratingsAverage } = useSelector(
+    (state) => state.singleProduct.product
+  );
+
+  useEffect(() => {
+    if (ratingsAverage) {
+      setAverageRating(ratingsAverage);
+    }
+  }, [ratingsAverage]);
 
   if (!product) {
     return <div>No product found</div>;
@@ -56,7 +68,6 @@ const FeaturedProduct = ({ productId }) => {
             fontWeight={"400"}
             fontSize=".9rem"
             letterSpacing={1}
-
             textTransform={"uppercase"}
           >
             {title}

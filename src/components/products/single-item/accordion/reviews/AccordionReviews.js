@@ -80,7 +80,7 @@ const AccordionReviews = () => {
   return (
     <>
       {renderedReviews}
-      <Flex>
+      <Flex gap={3}>
         {currentPage > 1 && (
           <Button
             w={"100%"}

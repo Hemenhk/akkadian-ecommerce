@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import CreateReviewForm from "./reviews/CreateReviewForm";
 
 const TheAccordion = ({ ingredients, usage, ratingsQuantity}) => {
   return (
@@ -125,6 +126,7 @@ const TheAccordion = ({ ingredients, usage, ratingsQuantity}) => {
               letterSpacing={0.5}
               lineHeight={1.5}
             >
+              <CreateReviewForm />
               <AccordionReviews />
             </AccordionPanel>
           </>
