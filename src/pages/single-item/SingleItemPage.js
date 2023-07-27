@@ -4,15 +4,17 @@ import { useParams } from "react-router-dom";
 
 import classes from "./styles/SingleItemPage.module.css";
 
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { fetchSingleProduct } from "../../redux/reducers/single-product/actions";
 import TheAccordion from "../../components/products/single-item/accordion/TheAccordion";
 import QuantitySelector from "../../components/products/single-item/quantity-selector/QuantitySelector";
 import SingleItemButtons from "../../components/products/single-item/buttons/SingleItemButtons";
 import StarRating from "../../components/products/single-item/rating/StarRating";
+import ImageCarousel from "../../components/products/single-item/image-carousel/ImageCarousel";
 
 const SingleItemPage = () => {
   const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
   const { productId } = useParams();
 
@@ -25,7 +27,7 @@ const SingleItemPage = () => {
   const {
     title,
     price,
-    imageCover,
+    images,
     description,
     ingredients,
     usage,
@@ -49,7 +51,11 @@ const SingleItemPage = () => {
         gap={10}
       >
         <Flex flexDirection={"column"}>
-          <Image src={imageCover} alt="product " w={"400px"} />
+          <ImageCarousel
+            images={images}
+            currentImageIndex={currentImageIndex}
+            setCurrentImageIndex={setCurrentImageIndex}
+          />
         </Flex>
         <Flex w={"450px"}>
           <TheAccordion

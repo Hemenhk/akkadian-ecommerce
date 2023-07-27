@@ -79,7 +79,7 @@ const SingleItemButtons = ({ product, setQuantity, quantity, description }) => {
         fontSize={".8rem"}
         fontWeight={400}
         letterSpacing={0.5}
-        lineHeight={1.5}
+        lineHeight={1.75}
       >
         {description}
       </Text>

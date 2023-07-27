@@ -46,7 +46,7 @@ const TheAccordion = ({ ingredients, usage, ratingsQuantity}) => {
               fontSize={".8rem"}
               fontWeight={400}
               letterSpacing={0.5}
-              lineHeight={1.5}
+              lineHeight={1.75}
             >
               {usage}
             </AccordionPanel>
@@ -85,7 +85,7 @@ const TheAccordion = ({ ingredients, usage, ratingsQuantity}) => {
               fontSize={".8rem"}
               fontWeight={400}
               letterSpacing={0.5}
-              lineHeight={1.5}
+              lineHeight={1.75}
             >
               {ingredients}
             </AccordionPanel>
